@@ -6,10 +6,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.NumberPicker;
 
 
 public class SettingsActivity extends Activity {
 
+    private NumberPicker np;
     private Button button7;
 
     @Override
@@ -17,6 +19,7 @@ public class SettingsActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
         addListenerOnButton7();
+        addNumberPicker();
     }
 
     //back to launchView
@@ -32,5 +35,11 @@ public class SettingsActivity extends Activity {
         });
     }
 
+    public void addNumberPicker () {
+        np = (NumberPicker) findViewById(R.id.numberPicker);
+        np.setMinValue(0);
+        np.setMaxValue(60);
+        np.setWrapSelectorWheel(false);
+    }
 
 }

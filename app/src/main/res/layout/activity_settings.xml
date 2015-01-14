@@ -20,12 +20,39 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/settings"
-        android:textSize="32dp"
+        android:textSize="34dp"
         android:textColor="@color/white"
         android:id="@+id/textView1"
         android:layout_marginTop="20dp"
         android:layout_below="@+id/imageView1"
         android:layout_centerHorizontal="true" />
+
+    <ToggleButton
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/toggleButtonService"
+        android:textOn="Stop Service"
+        android:textOff="Start Service"
+        android:textColor="@color/white"
+        android:textSize="26dp"
+        android:background="@drawable/rounded"
+        android:layout_below="@+id/textView1"
+        android:layout_marginTop="30dp"
+        android:layout_centerHorizontal="true" />
+
+    <ToggleButton
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/toggleButtonNotification"
+        android:textOn="Notification On"
+        android:textOff="Notification Off"
+        android:textColor="@color/white"
+        android:textSize="26dp"
+        android:background="@drawable/rounded"
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/toggleButtonService"
+        android:layout_alignLeft="@+id/toggleButtonService"
+        android:layout_alignStart="@+id/toggleButtonService" />
 
     <Button
         android:layout_width="110dp"
@@ -38,5 +65,28 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
+
+    <NumberPicker
+        android:layout_width="50dp"
+        android:layout_height="120dp"
+        android:id="@+id/numberPicker"
+        android:layout_below="@+id/toggleButtonNotification"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+     />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="min"
+        android:id="@+id/textView"
+        android:textSize="28dp"
+        android:textColor="@color/white"
+        android:layout_alignBottom="@+id/numberPicker"
+        android:layout_toRightOf="@+id/numberPicker"
+        android:layout_toEndOf="@+id/numberPicker"
+        android:layout_marginBottom="40dp"
+        android:layout_marginLeft="5dp"/>
+
 
 </RelativeLayout>
