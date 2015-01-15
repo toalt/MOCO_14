@@ -67,7 +67,7 @@
         android:layout_alignParentStart="true" />
 
     <NumberPicker
-        android:layout_width="24dp"
+        android:layout_width="30dp"
         android:layout_height="108dp"
         android:background="@color/white"
         android:id="@+id/numberPicker"
@@ -86,11 +86,11 @@
         android:layout_alignBottom="@+id/numberPicker"
         android:layout_toRightOf="@+id/numberPicker"
         android:layout_toEndOf="@+id/numberPicker"
-        android:layout_marginBottom="38dp"
+        android:layout_marginBottom="40dp"
         android:layout_marginLeft="5dp"/>
 
     <NumberPicker
-        android:layout_width="24dp"
+        android:layout_width="30dp"
         android:layout_height="108dp"
         android:background="@color/white"
         android:id="@+id/numberPicker2"
@@ -109,7 +109,7 @@
         android:layout_alignBottom="@+id/numberPicker2"
         android:layout_toRightOf="@+id/numberPicker2"
         android:layout_toEndOf="@+id/numberPicker2"
-        android:layout_marginBottom="37dp"
+        android:layout_marginBottom="40dp"
         android:layout_marginLeft="5dp"/>
 
     <Button
