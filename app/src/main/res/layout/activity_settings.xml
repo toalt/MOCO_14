@@ -23,33 +23,33 @@
         android:textSize="34dp"
         android:textColor="@color/white"
         android:id="@+id/textView1"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:layout_below="@+id/imageView1"
         android:layout_centerHorizontal="true" />
 
     <ToggleButton
-        android:layout_width="200dp"
+        android:layout_width="180dp"
         android:layout_height="wrap_content"
         android:id="@+id/toggleButtonService"
         android:textOn="Stop Service"
         android:textOff="Start Service"
         android:textColor="@color/white"
-        android:textSize="26dp"
+        android:textSize="22dp"
         android:background="@drawable/rounded"
         android:layout_below="@+id/textView1"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="15dp"
         android:layout_centerHorizontal="true" />
 
     <ToggleButton
-        android:layout_width="200dp"
+        android:layout_width="180dp"
         android:layout_height="wrap_content"
         android:id="@+id/toggleButtonNotification"
         android:textOn="Notification On"
         android:textOff="Notification Off"
         android:textColor="@color/white"
-        android:textSize="26dp"
+        android:textSize="22dp"
         android:background="@drawable/rounded"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="15dp"
         android:layout_below="@+id/toggleButtonService"
         android:layout_alignLeft="@+id/toggleButtonService"
         android:layout_alignStart="@+id/toggleButtonService" />
@@ -61,18 +61,19 @@
         android:textSize="28dp"
         android:textColor="@color/white"
         android:text="Back"
-        android:id="@+id/button7"
+        android:id="@+id/back"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
     <NumberPicker
-        android:layout_width="50dp"
-        android:layout_height="120dp"
+        android:layout_width="24dp"
+        android:layout_height="108dp"
+        android:background="@color/white"
         android:id="@+id/numberPicker"
         android:layout_below="@+id/toggleButtonNotification"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginLeft="90dp"
+        android:layout_marginTop="20dp"
      />
 
     <TextView
@@ -80,13 +81,47 @@
         android:layout_height="wrap_content"
         android:text="min"
         android:id="@+id/textView"
-        android:textSize="28dp"
+        android:textSize="22dp"
         android:textColor="@color/white"
         android:layout_alignBottom="@+id/numberPicker"
         android:layout_toRightOf="@+id/numberPicker"
         android:layout_toEndOf="@+id/numberPicker"
-        android:layout_marginBottom="40dp"
+        android:layout_marginBottom="38dp"
         android:layout_marginLeft="5dp"/>
 
+    <NumberPicker
+        android:layout_width="24dp"
+        android:layout_height="108dp"
+        android:background="@color/white"
+        android:id="@+id/numberPicker2"
+        android:layout_below="@+id/toggleButtonNotification"
+        android:layout_marginLeft="180dp"
+        android:layout_marginTop="20dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="sec"
+        android:textSize="22dp"
+        android:textColor="@color/white"
+        android:id="@+id/textView2"
+        android:layout_alignBottom="@+id/numberPicker2"
+        android:layout_toRightOf="@+id/numberPicker2"
+        android:layout_toEndOf="@+id/numberPicker2"
+        android:layout_marginBottom="37dp"
+        android:layout_marginLeft="5dp"/>
+
+    <Button
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:text="Set Interval"
+        android:background="@drawable/rounded"
+        android:textSize="22dp"
+        android:textColor="@color/white"
+        android:id="@+id/setInterval"
+        android:layout_above="@+id/back"
+        android:layout_marginBottom="20dp"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

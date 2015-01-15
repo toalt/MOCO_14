@@ -10,22 +10,21 @@ import android.widget.Button;
 
 public class InsideActivity extends Activity {
 
-    private Button button4;
-    private Button button5;
+    private Button manualMode,back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inside);
-        addListenerOnButton4();
-        addListenerOnButton5();
+        addListenerOnButtonBack();
+        addListenerOnButtonManualMode();
     }
 
     //back to StartView
-    public void addListenerOnButton4 () {
+    public void addListenerOnButtonBack () {
         final Context context = this;
-        button4 = (Button) findViewById(R.id.button4);
-        button4.setOnClickListener(new View.OnClickListener(){
+        back = (Button) findViewById(R.id.back);
+        back.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View arg0) {
                 Intent intent = new Intent(context,GarduinoMainActivity.class);
@@ -35,10 +34,10 @@ public class InsideActivity extends Activity {
     }
 
     //launch ManualModeView
-    public void addListenerOnButton5 () {
+    public void addListenerOnButtonManualMode () {
         final Context context = this;
-        button5 = (Button) findViewById(R.id.button5);
-        button5.setOnClickListener(new View.OnClickListener(){
+        manualMode = (Button) findViewById(R.id.manualMode);
+        manualMode.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View arg0) {
                 Intent intent = new Intent(context,ManualModeActivity.class);

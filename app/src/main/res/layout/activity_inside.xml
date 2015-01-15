@@ -8,66 +8,14 @@
     tools:context="garduino.moco.htwg.de.moco_ws14.InsideActivity"
     >
 
-    <TextView
-        android:layout_width="300dp"
-        android:layout_height="60dp"
-        android:background="@drawable/rounded_green"
-        android:text="Temperature: 23.4 °C"
-        android:textSize="28dp"
-        android:textColor="@color/beige"
-        android:gravity="center"
-        android:id="@+id/textViewTemp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp" />
-
-    <TextView
-        android:layout_width="300dp"
-        android:layout_height="60dp"
-        android:background="@drawable/rounded_green"
-        android:text="Soil Moisture: 68.5 %"
-        android:textSize="28dp"
-        android:textColor="@color/beige"
-        android:gravity="center"
-        android:id="@+id/textViewSoil"
-        android:layout_below="@+id/textViewTemp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp" />
-
-    <TextView
-        android:layout_width="300dp"
-        android:layout_height="60dp"
-        android:background="@drawable/rounded_green"
-        android:text="Humidity: 55.2 %"
-        android:textSize="28dp"
-        android:textColor="@color/beige"
-        android:gravity="center"
-        android:id="@+id/textViewHumidity"
-        android:layout_below="@+id/textViewSoil"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp" />
-
-    <TextView
-        android:layout_width="300dp"
-        android:layout_height="60dp"
-        android:background="@drawable/rounded_green"
-        android:text="Seedtime: 5d 13h"
-        android:textSize="28dp"
-        android:textColor="@color/beige"
-        android:gravity="center"
-        android:id="@+id/textViewTime"
-        android:layout_below="@+id/textViewHumidity"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp" />
-
     <Button
         android:layout_width="110dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/rounded_green"
+        android:background="@drawable/rounded_silver"
         android:textSize="28dp"
-        android:textColor="@color/beige"
+        android:textColor="@color/black"
         android:text="Back"
-        android:id="@+id/button4"
+        android:id="@+id/back"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
@@ -75,13 +23,117 @@
     <Button
         android:layout_width="210dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/rounded_green"
+        android:background="@drawable/rounded_silver"
         android:textSize="28dp"
-        android:textColor="@color/beige"
+        android:textColor="@color/black"
         android:text="Manual Mode"
-        android:id="@+id/button5"
+        android:id="@+id/manualMode"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
+
+    <ScrollView
+        android:layout_width="300dp"
+        android:layout_height="370dp"
+        android:id="@+id/scrollView"
+        android:layout_marginTop="20dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="300dp"
+            android:layout_height="800dp">
+
+            <TextView
+                android:layout_width="300dp"
+                android:layout_height="60dp"
+                android:background="@drawable/rounded_silver"
+                android:text="Temperature: 23.4 °C"
+                android:textSize="28dp"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:id="@+id/textViewTemp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+             />
+
+            <TextView
+                android:layout_width="300dp"
+                android:layout_height="60dp"
+                android:background="@drawable/rounded_silver"
+                android:text="Soil Moisture: 68.5 %"
+                android:textSize="28dp"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:id="@+id/textViewSoil"
+                android:layout_below="@+id/textViewTemp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="40dp" />
+
+            <TextView
+                android:layout_width="300dp"
+                android:layout_height="60dp"
+                android:background="@drawable/rounded_silver"
+                android:text="Humidity: 55.2 %"
+                android:textSize="28dp"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:id="@+id/textViewHumidity"
+                android:layout_below="@+id/textViewSoil"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="40dp" />
+
+            <TextView
+                android:layout_width="300dp"
+                android:layout_height="60dp"
+                android:background="@drawable/rounded_silver"
+                android:text="Seedtime: 5d 13h"
+                android:textSize="28dp"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:id="@+id/textViewTime"
+                android:layout_below="@+id/textViewHumidity"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="40dp" />
+
+            <TextView
+                android:layout_width="300dp"
+                android:layout_height="60dp"
+                android:background="@drawable/rounded_silver"
+                android:text="Luminosity: 60.0 %"
+                android:textSize="28dp"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:id="@+id/textViewLumen"
+                android:layout_below="@+id/textViewTime"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="40dp" />
+
+            <TextView
+                android:layout_width="300dp"
+                android:layout_height="60dp"
+                android:background="@drawable/rounded_silver"
+                android:text="Ventilator: 25.0 %"
+                android:textSize="28dp"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:id="@+id/textViewVentilator"
+                android:layout_below="@+id/textViewLumen"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="40dp" />
+
+            </LinearLayout>
+    </ScrollView>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/scollIcon"
+        android:src="@drawable/scroll"
+        android:layout_above="@+id/back"
+        android:layout_marginBottom="30dp"
+        android:layout_centerHorizontal="true" />
+
 
 </RelativeLayout>
