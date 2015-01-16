@@ -28,4 +28,7 @@ dependencies {
     compile files('C:/Users/Fabian/Desktop/Workspaces/Git/MOCO_14/libs/jackson-annotations-2.5.0.jar')
     compile files('C:/Users/Fabian/Desktop/Workspaces/Git/MOCO_14/libs/jackson-core-2.5.0.jar')
     compile files('C:/Users/Fabian/Desktop/Workspaces/Git/MOCO_14/libs/jackson-databind-2.5.0.jar')
+    compile files('C:/Users/TobiasAdmin/workspaceGit/MOCO_14/libs/jackson-annotations-2.5.0.jar')
+    compile files('C:/Users/TobiasAdmin/workspaceGit/MOCO_14/libs/jackson-core-2.5.0.jar')
+    compile files('C:/Users/TobiasAdmin/workspaceGit/MOCO_14/libs/jackson-databind-2.5.0.jar')
 }

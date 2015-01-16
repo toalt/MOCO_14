@@ -23,7 +23,7 @@ public class InsideActivity extends Activity {
     private ArduinoDataBean arduinoDataBean = null;
     GarduinoService garduinoService;
 
-    TextView tempView;
+    private TextView tempView, soilView,humidView,lumiView, ventiView;
 
     private InsideActivity myActivity;
 
@@ -64,7 +64,7 @@ public class InsideActivity extends Activity {
 
         addListenerOnButtonBack();
         addListenerOnButtonManualMode();
-        addTempView();
+        addDynamicView();
 
         if (bindService(new Intent(this.getApplicationContext(),
                         GarduinoService.class), serviceConnection,
@@ -80,8 +80,12 @@ public class InsideActivity extends Activity {
         unbindService(serviceConnection);
     }
 
-    public void addTempView() {
+    public void addDynamicView() {
+        soilView = (TextView) findViewById(R.id.textViewSoil);
+        lumiView = (TextView) findViewById(R.id.textViewLumen);
+        ventiView = (TextView) findViewById(R.id.textViewVentilator);
         tempView = (TextView) findViewById(R.id.textViewTemp);
+        humidView = (TextView) findViewById(R.id.textViewHumidity);
     }
 
     //back to StartView
@@ -114,7 +118,11 @@ public class InsideActivity extends Activity {
     public void addBeanListener(ArduinoDataBean bean) {
         if(bean != null) {
             this.arduinoDataBean = bean;
-            tempView.setText(String.valueOf(bean.getCurrentTemp_1()));
+            humidView.setText("Humidity: "+String.valueOf(bean.getCurrentHumiAir())+" %");
+            tempView.setText("Temperature: "+String.valueOf(bean.getCurrentTemp_1())+" C°");
+            ventiView.setText("Ventilator: "+String.valueOf(bean.getAirPercent())+" %");
+            lumiView.setText("Luminosity: "+String.valueOf(bean.getLightPercent())+" %");
+            soilView.setText("Soil Moisture: "+String.valueOf(bean.getCurrentHumiGround())+" %");
         }
 
     }
