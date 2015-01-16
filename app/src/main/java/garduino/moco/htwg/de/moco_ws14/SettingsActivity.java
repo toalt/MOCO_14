@@ -37,6 +37,8 @@ public class SettingsActivity extends Activity {
 
     private boolean mIsBounded = false;
 
+    private boolean serviceIsStarted = false;
+
     ServiceConnection serviceConnection = new ServiceConnection() {
 
         @Override
@@ -107,7 +109,7 @@ public class SettingsActivity extends Activity {
         startService = (ToggleButton) findViewById(R.id.toggleButtonService);
         if(isMyServiceRunning(GarduinoService.class)) {
             startService.setChecked(true);
-            mIsBounded = true;
+            serviceIsStarted = true;
         }
         startService.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -120,13 +122,15 @@ public class SettingsActivity extends Activity {
                     bindService(new Intent(v.getContext(),
                                     GarduinoService.class), serviceConnection,
                             Context.BIND_AUTO_CREATE);
+                    serviceIsStarted = true;
 
 
                 }
                 else {
                     unbindService(serviceConnection);
                     stopService(garduinoIntent);
-
+                    mIsBounded = false;
+                    serviceIsStarted = false;
 
                 }
 
