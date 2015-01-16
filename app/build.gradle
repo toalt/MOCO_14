@@ -3,7 +3,10 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 21
     buildToolsVersion "21.1.1"
-
+    packagingOptions {
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/NOTICE'
+    }
     defaultConfig {
         applicationId "garduino.moco.htwg.de.moco_ws14"
         minSdkVersion 15

@@ -2,13 +2,17 @@ package garduino.moco.htwg.de.moco_ws14;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.NumberPicker;
 import android.widget.ToggleButton;
+
+import service.GarduinoService;
 
 
 public class SettingsActivity extends Activity {
@@ -16,6 +20,7 @@ public class SettingsActivity extends Activity {
     private NumberPicker np,np2;
     private Button back,setInterval;
     private ToggleButton startService,sendNotification;
+    private Intent garduinoIntent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +29,7 @@ public class SettingsActivity extends Activity {
         addListenerOnButtonBack();
         addNumberPicker();
         addSetInterval();
+        addStartService();
     }
 
     //back to launchView
@@ -65,10 +71,32 @@ public class SettingsActivity extends Activity {
 
     public void addStartService () {
         startService = (ToggleButton) findViewById(R.id.toggleButtonService);
+
+        startService.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(startService.isChecked()) {
+                    Log.i("DAAA","Checked");
+                    garduinoIntent = new Intent(v.getContext(),
+                            GarduinoService.class);
+                    startService(garduinoIntent);
+                }
+                else {
+                    if(garduinoIntent != null) {
+                        stopService(garduinoIntent);
+                    }
+
+                }/*
+                */
+            }
+
+        });
     }
 
     public void addNotification () {
         sendNotification = (ToggleButton) findViewById(R.id.toggleButtonNotification);
     }
+
+
 
 }
