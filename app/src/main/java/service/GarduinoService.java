@@ -46,6 +46,7 @@ package service;
 
         import garduino.moco.htwg.de.moco_ws14.InsideActivity;
         import garduino.moco.htwg.de.moco_ws14.R;
+        import garduino.moco.htwg.de.moco_ws14.SettingsActivity;
         import utils.ArduinoDataBean;
         import utils.GarduinoUtils;
 
@@ -96,6 +97,7 @@ public class GarduinoService extends Service {
 
 
     private String LOG_TAG = this.getClass().getSimpleName();
+    private SettingsActivity mySettingActivity;
 
     public class LocalBinder extends Binder {
         public GarduinoService getService() {
@@ -117,6 +119,10 @@ public class GarduinoService extends Service {
 
     public void addGuiListener(InsideActivity myActivity) {
         this.myGuiActivity = myActivity;
+    }
+
+    public void addGuiListener(SettingsActivity myActivity) {
+        this.mySettingActivity = myActivity;
     }
 
     private void prepareDummyBean() {
@@ -443,36 +449,43 @@ public class GarduinoService extends Service {
         if(myGuiActivity != null) {
             myGuiActivity.addBeanListener(bean);
         }
+        if(mySettingActivity != null) {
+            mySettingActivity.addBeanListener(bean);
+        }
 
     }
 
     public void checkTemperatureAndHumidity() {
-        if (aBean.getCurrentTemp_1() >= aBean.getMaxTemp()
-                && !notificationTemperatureIsShowing) {
-            mNM = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-            // Display a notification about us starting. We put an icon in the
-            // status bar.
-            showNotification("Die Temperatur im Gewächshaus ist zu hoch!",
-                    String.valueOf(aBean.getCurrentTemp_1() + "0° C"));
-            notificationTemperatureIsShowing = true;
-        } else if (aBean.getCurrentTemp_1() <= aBean.getMinTemp()) {
-            mNM = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-            showNotification("Die Temperatur im Gewächshaus ist zu niedrig!",
-                    String.valueOf(aBean.getCurrentTemp_1() + "0° C"));
+        if(notificationTemperatureIsShowing) {
+            if (aBean.getCurrentTemp_1() >= aBean.getMaxTemp()
+                    && !notificationTemperatureIsShowing) {
+                mNM = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+                // Display a notification about us starting. We put an icon in the
+                // status bar.
+                showNotification("Die Temperatur im Gewächshaus ist zu hoch!",
+                        String.valueOf(aBean.getCurrentTemp_1() + "0° C"));
+                notificationTemperatureIsShowing = true;
+            } else if (aBean.getCurrentTemp_1() <= aBean.getMinTemp()) {
+                mNM = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+                showNotification("Die Temperatur im Gewächshaus ist zu niedrig!",
+                        String.valueOf(aBean.getCurrentTemp_1() + "0° C"));
 
+            }
         }
-        if (aBean.getCurrentHumiAir() >= aBean.getMaxHumiAir()
-                && !notificationHumiAirIsShowing) {
-            mNM = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-            showNotification(
-                    "Die Luftfeuchtigkeit im Gewächshaus ist zu hoch!",
-                    String.valueOf(aBean.getCurrentHumiAir() + "0 %"));
-            notificationHumiAirIsShowing = true;
-        } else if (aBean.getCurrentHumiAir() <= aBean.getMinHumiAir()) {
-            mNM = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-            showNotification(
-                    "Die Luftfeuchtigkeit im Gewächshaus ist zu niedrig!",
-                    String.valueOf(aBean.getCurrentHumiAir()));
+        if(notificationHumiAirIsShowing) {
+            if (aBean.getCurrentHumiAir() >= aBean.getMaxHumiAir()
+                    && !notificationHumiAirIsShowing) {
+                mNM = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+                showNotification(
+                        "Die Luftfeuchtigkeit im Gewächshaus ist zu hoch!",
+                        String.valueOf(aBean.getCurrentHumiAir() + "0 %"));
+                notificationHumiAirIsShowing = true;
+            } else if (aBean.getCurrentHumiAir() <= aBean.getMinHumiAir()) {
+                mNM = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+                showNotification(
+                        "Die Luftfeuchtigkeit im Gewächshaus ist zu niedrig!",
+                        String.valueOf(aBean.getCurrentHumiAir()));
+            }
         }
     }
 
