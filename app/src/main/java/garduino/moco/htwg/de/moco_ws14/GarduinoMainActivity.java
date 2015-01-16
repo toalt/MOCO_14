@@ -8,8 +8,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import utils.ArduinoDataBean;
+
 
 public class GarduinoMainActivity extends Activity {
+
+
 
     private Button inside,settings,about;
 
@@ -59,5 +63,6 @@ public class GarduinoMainActivity extends Activity {
             }
         });
     }
+
 
 }

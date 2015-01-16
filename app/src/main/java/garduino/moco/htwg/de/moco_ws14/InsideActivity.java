@@ -7,10 +7,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import utils.ArduinoDataBean;
+
 
 public class InsideActivity extends Activity {
 
     private Button manualMode,back;
+    private ArduinoDataBean arduinoDataBean;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +48,13 @@ public class InsideActivity extends Activity {
                 startActivity(intent);
             }
         });
+    }
+
+    public void addBeanListener(ArduinoDataBean bean) {
+        if(bean != null) {
+            this.arduinoDataBean = bean;
+        }
+
     }
 
 }
