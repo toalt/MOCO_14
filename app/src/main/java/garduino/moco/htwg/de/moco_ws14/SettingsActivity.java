@@ -116,21 +116,26 @@ public class SettingsActivity extends Activity {
             public void onClick(View v) {
                 if(startService.isChecked()) {
                     Log.i("DAAA","Checked");
-                    garduinoIntent = new Intent(v.getContext(),
-                            GarduinoService.class);
-                    startService(garduinoIntent);
-                    bindService(new Intent(v.getContext(),
-                                    GarduinoService.class), serviceConnection,
-                            Context.BIND_AUTO_CREATE);
-                    serviceIsStarted = true;
+                    if(!isMyServiceRunning(GarduinoService.class)) {
+                        garduinoIntent = new Intent(v.getContext(),
+                                GarduinoService.class);
+                        startService(garduinoIntent);
+                        bindService(new Intent(v.getContext(),
+                                        GarduinoService.class), serviceConnection,
+                                Context.BIND_AUTO_CREATE);
+                        serviceIsStarted = true;
+                    }
+
 
 
                 }
                 else {
-                    unbindService(serviceConnection);
-                    stopService(garduinoIntent);
-                    mIsBounded = false;
-                    serviceIsStarted = false;
+                    if(isMyServiceRunning(GarduinoService.class)) {
+                        unbindService(serviceConnection);
+                        stopService(garduinoIntent);
+                        mIsBounded = false;
+                        serviceIsStarted = false;
+                    }
 
                 }
 
